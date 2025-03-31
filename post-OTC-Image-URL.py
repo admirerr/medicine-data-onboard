@@ -1,10 +1,15 @@
 import csv
 import requests
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # API endpoint and headers
-API_URL = "http://localhost:3000/v1/post-otc-image"
+API_URL = os.getenv("API_URL", "http://localhost:3000/v1/post-otc-image")
 HEADERS = {
-    "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpblJlc3VsdCI6eyJzdGF0dXMiOnRydWUsIm1lc3NhZ2UiOiJSZXF1ZXN0IFByb2Nlc3NlZCBTdWNjZXNzZnVsbHkiLCJyZXNwb25zZSI6eyJNT0JJTEUiOiIxMjM0NTY3ODkwIiwiQ0lUWSI6Ik5ldyBZb3JrIiwiRk5BTUUiOiJLYXJ0aWtleSIsIkRPQiI6IjE5OTItMDMtMTUiLCJDVVNUT01FUl9JRCI6IjE3NjI3MTQ0NjdDIiwiR0VOREVSIjoiRmVtYWxlIiwiTE5BTUUiOiJHdXB0YSIsIkVQT0NIIjoxNzM4NzkxMTIyMTMzLCJFTUFJTCI6IlAwYWxpY2Uuam9obnNvbkBnbWFpbC5jb20ifX0sImlhdCI6MTczODc5MTIxM30.g8uap3VaJmogWMo4v1me4iD3BZnHd1EIcnNs3s0OsE0Fy_5BL9KAxPwYmKKU1GL6hA8N-Z71w6U7DttZDyVNzHE_B5iflj__xL5XA0EZVoXxEd4Y53mfGYo1hTpgvNt7jaVChlJx72u4zFE95AqcUxplZXLGY4iIDGg7accMyjOU5JM2pLz1rOJzMyMn5s42HiK5iErFHx_tXVGYCMvP1jJ6JQkDtI8Rf_bQHzTA4-QnmIYxY1pzPQ_a3R31_-rIWF3A6INC12uEedKFnroJq0Ugx1IaIWbJohbxBhGEbRik2h1LxPnq8g-n2tM1cADWNxDKA5G-xQ9SBSGt2KGEXHV8h7cDW8IF4honP3hzcYnxj2YN-YRgpAMBEoIyZANzDbi8B3TZ64GrK1ZDoNcp1GtS4Tl31xjn2KltK9p7FFYhvGbrnzYZwpLdbhuf7RoqyOl4qpz0s1jwC1g8U02sfSvQmaqAHYRHwStSs_I4H-nRZJZjFG67eQ9lyYtjvByK",
+    "Authorization": os.getenv("AUTHORIZATION", ""),
     "Content-Type": "application/json"
 }
 
